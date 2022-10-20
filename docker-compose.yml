@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+    nodeserver:
+        container_name: "nodeserver"
+        build:
+            context: ./App
+        ports:
+            - "3000:3000"
+    nginx:
+        container_name: "proxy"
+        restart: always
+        build:
+            context: ./Nginx
+        ports:
+          - "80:80"
